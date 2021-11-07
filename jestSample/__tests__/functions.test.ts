@@ -21,6 +21,22 @@ describe("asyncSumOfArray test", () => {
     // });
 });
 
+
+//元の関数
+// export const asyncSumOfArraySometimesZero = (
+//     numbers: number[],
+//     db: Database
+//   ): Promise<number> => {
+//     return new Promise((resolve): void => {
+//       try {
+//         db.save(numbers);
+//         resolve(sumOfArray(numbers));
+//       } catch (error) {
+//         resolve(0);u,mnbewhgtcr5423w
+//       }
+//     });
+//   };
+//テスト関数
 describe('asyncSumOfArraySometimesZero test', () => {
     test('Check normal', () => {
         const dbMock = jest

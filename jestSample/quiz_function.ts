@@ -13,32 +13,33 @@ export const writeDataInLocal = (
     }
 }
 
-// // Quiz.2
-// export const fetchURL = (
-//   url: string
-//   ): Promise<string> => {
-//   return new Promise((resolve, reject): void => {
-//     const req = new XMLHttpRequest();
-//     req.onloadend = () => {
-//       if (200 <= req.status && req.status < 300) {
-//         resolve(JSON.parse(req.responseText));
-//       } else {
-//         reject(new Error(JSON.parse(req.statusText)));
-//       }
-//     };
-//     req.onerror = () => {
-//       reject(new Error(JSON.parse(req.statusText)));
-//     };
-//     req.open("GET", url, true);
-//     req.send(null);
-//   });
-// }
+// Quiz.2
+export const fetchURL = (
+  url: string
+  ): Promise<string> => {
+  return new Promise((resolve, reject): void => {
+    const req = new XMLHttpRequest();
+    req.onloadend = () => {
+      if (200 <= req.status && req.status < 300) {
+        resolve(JSON.parse(req.responseText || "null"));
+      } 
+      else {
+        reject(new Error(JSON.parse(req.statusText)));
+      }
+    };
+    req.onerror = () => {
+      reject(new Error(JSON.parse(req.statusText)));
+    };
+    req.open("GET", url, true);
+    req.send(null);
+  });
+}
 
-// // Quiz.3
-// export const newConfig = (
-//     path: string
-// ): fn.Config => {
-//     const config = new fn.Config;
-//     config.load(path);
-//     return config;
-// }
+// Quiz.3
+export const newConfig = (
+    path: string
+): fn.Config => {
+    const config = new fn.Config;
+    config.load(path);
+    return config;
+}

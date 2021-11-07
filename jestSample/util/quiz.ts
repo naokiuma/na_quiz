@@ -1,5 +1,6 @@
 // Quiz用に追加
-import fs from "fs";
+//import fs from "fs";
+import * as fs from 'fs'
 
 const filename:string = "website_result_hash.txt";
 export class FileManager{
@@ -28,3 +29,8 @@ export class Config {
     }
   }
 }
+
+console.log("test");
+const ConfigTest = new Config;
+ConfigTest.load('quiz.yaml');
+console.log(ConfigTest)
