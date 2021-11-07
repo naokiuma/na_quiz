@@ -2,12 +2,13 @@
 const quiz = require('./quiz_function');
 
 
-//クイズ1
+//クイズ1_1
 
 test('quiz1_success',() => {
     expect(quiz.writeDataInLocal('test_write')).toBe(true);
 })
 
+//クイズ1_2
 //成功せず。。
 // test('quiz1_error', () => {
 //     // try{
@@ -22,9 +23,8 @@ test('quiz1_success',() => {
 //   });
 
 
-//クイズ2
 
-
+//クイズ2_1
 test('quiz2_success',() => {
     const result = 
     {
@@ -40,6 +40,7 @@ test('quiz2_success',() => {
 
 })
 
+//クイズ2_2
 test('quiz2_error onloaded404received',() => {
     expect(quiz.fetchURL('https://www.google.com/kwuerhdukdf')).rejects.toEqual(0);
 
