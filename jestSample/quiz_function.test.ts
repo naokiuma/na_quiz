@@ -42,7 +42,7 @@ test('quiz2_success',() => {
 
 //クイズ2_2
 test('quiz2_error onloaded404received',() => {
-    expect(quiz.fetchURL('https://www.google.com/kwuerhdukdf')).rejects.toEqual(0);
+    expect(quiz.fetchURL('https://www.google.com/kwuerhdukdf')).rejects.toEqual(0);//エラーの時はゼロを返す
 
 })
 

@@ -40,7 +40,11 @@ describe("asyncSumOfArray test", () => {
 describe('asyncSumOfArraySometimesZero test', () => {
     test('Check normal', () => {
         const dbMock = jest
-        .fn()
+        .fn(()=>{//デフォルト関数を設定
+            return {
+                save:():void =>{}
+            };
+        })
         .mockImplementationOnce(() => {
             return {
                 save: () :void => {}
@@ -54,8 +58,10 @@ describe('asyncSumOfArraySometimesZero test', () => {
             };
         });
 
-        expect(fn.asyncSumOfArraySometimesZero([0,1], dbMock())).resolves.toBe(1);
-        expect(fn.asyncSumOfArraySometimesZero([0,1], dbMock())).resolves.toBe(0);
+        expect(fn.asyncSumOfArraySometimesZero([0,1], dbMock())).resolves.toBe(1);//1つ目のmockImplementationOnce
+        expect(fn.asyncSumOfArraySometimesZero([0,1], dbMock())).resolves.toBe(0);//2つ目のmockImplementationOnce。使い切った
+        expect(fn.asyncSumOfArraySometimesZero([4,5], dbMock())).resolves.toBe(9);//デフォルト関数が実行される！
+
     });
 });
 
